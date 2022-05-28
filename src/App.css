@@ -9,9 +9,6 @@
 .body-right {
   width: 50%;
 }
-.body-left {
-  z-index: 2;
-}
 
 .body-left > img {
   width: 80%;
@@ -146,10 +143,33 @@ h3 {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 30%;
+  z-index: 2;
 }
 .body-left.true > img {
   width: 100%;
 }
 .body-left.true > .thumbnails {
   width: 100%;
+}
+.thumbnails.overlay-thumbnails {
+  justify-content: space-around;
+}
+.body-left.true > img:first-child {
+  width: 20px;
+  height: 20px;
+  margin-bottom: 10px;
+}
+.svg_container {
+  align-items: center;
+  background-color: var(--white);
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.svg_container:hover path {
+  stroke: var(--orange);
 }
