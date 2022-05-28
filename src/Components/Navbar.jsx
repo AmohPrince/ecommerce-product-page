@@ -5,6 +5,7 @@ import CartIcon from "../images/icon-cart.svg";
 import ProfilePicture from "../images/image-avatar.png";
 import Shoe1 from "../images/image-product-1.jpg";
 import Delete from "../images/icon-delete.svg";
+import Menu from "../images/icon-menu.svg";
 
 const Navbar = ({ numberOfProducts }) => {
   const [showCart, setShowCart] = useState(false);
@@ -19,6 +20,7 @@ const Navbar = ({ numberOfProducts }) => {
   return (
     <div className="Nav__container">
       <nav className="flex__container">
+        <img src={Menu} alt="menu" className="menu" />
         <img src={Logo} alt="Logo" />
         <ul className="nav-links flex__container">
           <li className="nav-link">Collections</li>

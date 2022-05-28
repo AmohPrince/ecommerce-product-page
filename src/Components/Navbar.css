@@ -118,3 +118,16 @@ nav > div img:last-of-type:hover {
   top: 7px;
   left: 10px;
 }
+.menu {
+  display: none;
+  margin-right: 20px;
+}
+
+@media screen and (max-width: 650px) {
+  ul.nav-links {
+    display: none;
+  }
+  .menu {
+    display: inline;
+  }
+}
