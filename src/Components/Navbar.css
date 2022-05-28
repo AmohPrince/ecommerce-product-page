@@ -120,7 +120,7 @@ nav > div img:last-of-type:hover {
 }
 .menu {
   display: none;
-  margin-right: 20px;
+  margin-right: 50px;
 }
 
 @media screen and (max-width: 650px) {
@@ -129,5 +129,15 @@ nav > div img:last-of-type:hover {
   }
   .menu {
     display: inline;
+  }
+  .Cart__container {
+    width: 100%;
+  }
+  .cart__product {
+    width: 90%;
+  }
+  .cart__product > .flex__container {
+    width: 100%;
+    justify-content: space-between;
   }
 }

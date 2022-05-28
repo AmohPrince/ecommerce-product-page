@@ -199,19 +199,36 @@ h3 {
   right: -6%;
 }
 
+@media screen and (max-width: 1150px) {
+  .App {
+    width: 95%;
+  }
+  .body {
+    padding: 30px 20px;
+  }
+}
+
 @media screen and (max-width: 650px) {
   .body {
     flex-direction: column;
-    padding: 30px 60px;
+    padding: 30px 20px;
   }
   .body-left {
     width: 100%;
+  }
+  .body-left > * {
+    margin: 0 auto;
+  }
+  .body-left > img {
+    display: block;
+    margin-bottom: 20px;
   }
   .body-right {
     width: 100%;
   }
   .left-bottom {
     flex-direction: column;
+    margin: 30px auto;
   }
   .plus-minus-icons {
     width: 100%;
@@ -219,5 +236,11 @@ h3 {
   .add-to-cart {
     width: 100%;
     margin-top: 20px;
+  }
+  .body-right > p:nth-child(3) {
+    font-size: 1rem;
+  }
+  .body-left.true {
+    width: 80%;
   }
 }
