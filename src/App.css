@@ -2,3 +2,131 @@
   width: 90%;
   margin: 0 auto;
 }
+.body {
+  padding: 30px 100px;
+}
+.body-left,
+.body-right {
+  width: 50%;
+}
+
+.body-left > img {
+  width: 80%;
+  border-radius: 20px;
+  height: 410px;
+  object-fit: cover;
+}
+.thumbnails {
+  width: 80%;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.thumbnails > img {
+  width: 21%;
+  object-fit: cover;
+  height: 80px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.thumbnails > .image1.image1-active,
+.thumbnails > .image2.image2-active,
+.thumbnails > .image3.image3-active,
+.thumbnails > .image4.image4-active {
+  border: 2px solid var(--orange);
+  transition: border, opacity 200ms ease-in;
+  opacity: 0.3;
+}
+.thumbnails > img:hover {
+  transition: border, opacity 200ms ease-in;
+  opacity: 0.6;
+}
+
+.body-right {
+  padding: 50px 0px;
+}
+h3 {
+  font-size: calc(1rem - 4px);
+  color: var(--orange);
+  letter-spacing: 2px;
+}
+.body-right > p:first-of-type {
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+.body-right > p:nth-child(3) {
+  color: var(--darkGrayishBlue);
+  font-size: calc(1rem - 2px);
+  width: 45ch;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+.body-right > div {
+  align-items: center;
+}
+.body-right > div:first-of-type > p:first-child {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.body-right > div:first-of-type > p:last-child {
+  margin-left: 10px;
+  background-color: var(--paleOrange);
+  color: var(--orange);
+  padding: 0px 5px;
+  font-weight: 700;
+  text-align: center;
+  border-radius: 4px;
+  font-size: calc(1rem - 2px);
+}
+.two-fifty {
+  font-size: calc(1rem - 2px);
+  font-weight: 700;
+  color: var(--grayishBlue);
+  margin-top: 5px;
+  text-decoration: line-through;
+}
+
+.left-bottom {
+  margin-top: 50px;
+  width: 80%;
+  justify-content: space-between;
+}
+
+.plus-minus-icons {
+  align-items: center;
+  background-color: lightgray;
+  border-radius: 10px;
+  width: 35%;
+  padding: 15px 20px;
+  justify-content: space-between;
+}
+.plus-minus-icons > p {
+  font-weight: 700;
+  font-size: calc(1rem - 2px);
+}
+.plus-minus-icons > img {
+  cursor: pointer;
+}
+.add-to-cart {
+  border-radius: 10px;
+  width: 60%;
+  background-color: var(--orange);
+  padding: 15px 20px;
+  color: var(--white);
+  cursor: pointer;
+}
+.add-to-cart > div {
+  margin: 0 auto;
+}
+.cart-icon {
+  margin-right: 10px;
+  height: 15px;
+  width: 15px;
+}
+.add-to-cart-text {
+  font-size: calc(1rem - 4px);
+}
