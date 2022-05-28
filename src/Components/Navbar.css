@@ -1,0 +1,79 @@
+.Nav__container {
+  position: relative;
+}
+
+nav {
+  align-items: center;
+  padding: 20px 0px;
+}
+
+ul {
+  margin-left: 80px;
+  margin-top: 15px;
+  margin-bottom: -23px;
+}
+.nav-link {
+  list-style: none;
+  margin-right: 20px;
+  cursor: pointer;
+  color: var(--darkGrayishBlue);
+  font-size: calc(1rem - 2px);
+}
+.nav-link:hover {
+  color: var(--black);
+  transition: color 200ms ease-in;
+}
+.nav-link.active {
+  color: var(--black);
+  border-bottom: 4px solid var(--orange);
+  padding-bottom: 30px;
+}
+
+nav > div {
+  margin-left: auto;
+  align-items: center;
+  margin-right: 50px;
+}
+nav > div img {
+  cursor: pointer;
+}
+nav > div img:last-of-type {
+  height: 50px;
+  width: 50px;
+  margin-left: 40px;
+  border: 2px solid transparent;
+  border-radius: 50%;
+}
+nav > div img:last-of-type:hover {
+  border: 2px solid var(--orange);
+  transition: border 200ms ease-in;
+}
+.splitter {
+  height: 1px;
+  background-color: var(--grayishBlue);
+  opacity: 50%;
+}
+.Cart__container {
+  width: 25%;
+  position: absolute;
+  right: 0;
+  height: 200px;
+  box-shadow: 0px 15px 60px -30px var(--black);
+  border-radius: 8px;
+  margin-top: -20px;
+  background-color: var(--white);
+}
+.Cart__container > div:first-child > p:first-of-type {
+  font-weight: 700;
+}
+.Cart__container > div:last-child > p:last-of-type {
+  text-align: center;
+}
+.Cart__container > div:first-of-type,
+.Cart__container > div:last-of-type {
+  padding: 15px;
+}
+.Cart__container > div:last-of-type {
+  justify-content: center;
+  align-items: center;
+}
