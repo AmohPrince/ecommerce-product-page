@@ -9,12 +9,16 @@
 .body-right {
   width: 50%;
 }
+.body-left {
+  z-index: 2;
+}
 
 .body-left > img {
   width: 80%;
   border-radius: 20px;
   height: 410px;
   object-fit: cover;
+  cursor: pointer;
 }
 .thumbnails {
   width: 80%;
@@ -129,4 +133,23 @@ h3 {
 }
 .add-to-cart-text {
   font-size: calc(1rem - 4px);
+}
+.overlay {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+.body-left.true {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+}
+.body-left.true > img {
+  width: 100%;
+}
+.body-left.true > .thumbnails {
+  width: 100%;
 }
