@@ -13,8 +13,6 @@ import AddIcon from "./images/icon-plus.svg";
 import MinusIcon from "./images/icon-minus.svg";
 import CartIcon from "./images/icon-cart2.svg";
 import Close from "./images/icon-close.svg";
-import IconPrevious from "./images/icon-previous.svg";
-import IconNext from "./images/icon-next.svg";
 
 /**
  *
@@ -24,98 +22,115 @@ import IconNext from "./images/icon-next.svg";
 function App() {
   const products = [Shoe1, Shoe2, Shoe3, Shoe4];
   const [activeProduct, setActiveProduct] = useState(products[0]);
+
   const products2 = [Shoe1, Shoe2, Shoe3, Shoe4];
   const [activeProduct2, setActiveProduct2] = useState(products2[0]);
 
   const [activeClass, setActiveClass] = useState("image1-active");
+  const [activeClass2, setActiveClass2] = useState("image1-active");
+
   const [numberOfProducts, setNumberOfProducts] = useState(0);
   const [overlay, setOverlay] = useState(false);
+
+  const showNextImage = (direction) => {};
 
   return (
     <>
       {overlay === true ? (
         <div className="overlay">
-          <div className={`body-left ${overlay}`}>
-            <img
-              src={Close}
-              alt="Close"
-              className="close"
-              onClick={() => {
-                setOverlay((prevState) => !prevState);
-              }}
-            />
-            <div className="svg_container">
-              <svg width="12" height="18" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M11 1 3 9l8 8"
-                  stroke="#1D2026"
-                  stroke-width="3"
-                  fill="none"
-                  fill-rule="evenodd"
+          <div className="body-left-wrapper">
+            <div className={`body-left ${overlay}`}>
+              <img
+                src={Close}
+                alt="Close"
+                className="close"
+                onClick={() => {
+                  setOverlay((prevState) => !prevState);
+                }}
+              />
+              <div
+                className="svg_container pointer-left"
+                onClick={() => {
+                  showNextImage("right");
+                }}
+              >
+                <svg width="12" height="18" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M11 1 3 9l8 8"
+                    stroke="#1D2026"
+                    stroke-width="3"
+                    fill="none"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </div>
+              <div
+                className="svg_container pointer-right"
+                onClick={() => {
+                  showNextImage("left");
+                }}
+              >
+                <svg width="13" height="18" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="m2 1 8 8-8 8"
+                    stroke="#1D2026"
+                    stroke-width="3"
+                    fill="none"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </div>
+              <img
+                src={activeProduct2}
+                alt="Shoe"
+                onClick={() => {
+                  setOverlay((prevState) => !prevState);
+                }}
+              />
+              <div className="thumbnails flex__container overlay-thumbnails">
+                <img
+                  src={Thumbnail1}
+                  alt="Shoe"
+                  className={`image1-two ${activeClass2}`}
+                  onClick={() => {
+                    setActiveProduct2(products2[0]);
+                    setActiveClass2("image1-two-active");
+                  }}
                 />
-              </svg>
-            </div>
-            <div className="svg_container">
-              <svg width="13" height="18" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="m2 1 8 8-8 8"
-                  stroke="#1D2026"
-                  stroke-width="3"
-                  fill="none"
-                  fill-rule="evenodd"
+                <img
+                  src={Thumbnail2}
+                  alt="Shoe"
+                  className={`image2-two ${activeClass2}`}
+                  onClick={() => {
+                    setActiveProduct2(products2[1]);
+                    setActiveClass2("image2-two-active");
+                  }}
                 />
-              </svg>
-            </div>
-            <img
-              src={activeProduct2}
-              alt="Shoe"
-              onClick={() => {
-                setOverlay((prevState) => !prevState);
-              }}
-            />
-            <div className="thumbnails flex__container overlay-thumbnails">
-              <img
-                src={Thumbnail1}
-                alt="Shoe"
-                className={`image1 ${activeClass}`}
-                onClick={() => {
-                  setActiveProduct2(products2[0]);
-                  setActiveClass("image1-active");
-                }}
-              />
-              <img
-                src={Thumbnail2}
-                alt="Shoe"
-                className={`image2 ${activeClass}`}
-                onClick={() => {
-                  setActiveProduct2(products2[1]);
-                  setActiveClass("image2-active");
-                }}
-              />
-              <img
-                src={Thumbnail3}
-                alt="Shoe"
-                className={`image3 ${activeClass}`}
-                onClick={() => {
-                  setActiveProduct2(products2[2]);
-                  setActiveClass("image3-active");
-                }}
-              />
-              <img
-                src={Thumbnail4}
-                alt="Shoe"
-                className={`image4 ${activeClass}`}
-                onClick={() => {
-                  setActiveProduct2(products2[3]);
-                  setActiveClass("image4-active");
-                }}
-              />
+                <img
+                  src={Thumbnail3}
+                  alt="Shoe"
+                  className={`image3-two ${activeClass2}`}
+                  onClick={() => {
+                    setActiveProduct2(products2[2]);
+                    setActiveClass2("image3-two-active");
+                  }}
+                />
+                <img
+                  src={Thumbnail4}
+                  alt="Shoe"
+                  className={`image4-two ${activeClass2}`}
+                  onClick={() => {
+                    setActiveProduct2(products2[3]);
+                    setActiveClass2("image4-two-active");
+                  }}
+                />
+              </div>
             </div>
           </div>
         </div>
       ) : null}
       <div className="App">
-        <Navbar />
+        <Navbar numberOfProducts={numberOfProducts} />
         <div className="body flex__container">
           <div className={`body-left`}>
             <img

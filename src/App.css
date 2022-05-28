@@ -40,6 +40,14 @@
   transition: border, opacity 200ms ease-in;
   opacity: 0.3;
 }
+.thumbnails > .image1-two.image1-two-active,
+.thumbnails > .image2-two.image2-two-active,
+.thumbnails > .image3-two.image3-two-active,
+.thumbnails > .image4-two.image4-two-active {
+  border: 2px solid var(--orange);
+  transition: border, opacity 200ms ease-in;
+  opacity: 0.3;
+}
 .thumbnails > img:hover {
   transition: border, opacity 200ms ease-in;
   opacity: 0.6;
@@ -158,6 +166,9 @@ h3 {
   width: 20px;
   height: 20px;
   margin-bottom: 10px;
+  position: absolute;
+  top: -7%;
+  right: 0%;
 }
 .svg_container {
   align-items: center;
@@ -172,4 +183,18 @@ h3 {
 }
 .svg_container:hover path {
   stroke: var(--orange);
+}
+.body-left-wrapper {
+  position: relative;
+  height: 100vh;
+}
+.pointer-left {
+  position: absolute;
+  top: 40%;
+  left: -6%;
+}
+.pointer-right {
+  position: absolute;
+  top: 40%;
+  right: -6%;
 }

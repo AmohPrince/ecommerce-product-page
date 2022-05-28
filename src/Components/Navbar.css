@@ -33,6 +33,7 @@ nav > div {
   margin-left: auto;
   align-items: center;
   margin-right: 50px;
+  position: relative;
 }
 nav > div img {
   cursor: pointer;
@@ -76,4 +77,44 @@ nav > div img:last-of-type:hover {
 .Cart__container > div:last-of-type {
   justify-content: center;
   align-items: center;
+}
+.cart__product img:first-of-type {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+.cart__product > .flex__container {
+  align-items: center;
+}
+.cart__product > .flex__container p {
+  color: var(--darkGrayishBlue);
+  font-size: calc(1rem - 2px);
+}
+.cart__product img:last-of-type {
+  margin-left: 10px;
+}
+.cart__product span {
+  color: var(--black);
+  font-weight: 700;
+}
+.checkout {
+  text-align: center;
+  font-size: calc(1rem - 4px);
+  color: var(--white);
+  background-color: var(--orange);
+  margin-top: 20px;
+  padding: 15px 0px;
+  border-radius: 8px;
+}
+.badge {
+  color: var(--white);
+  background-color: var(--orange);
+  padding: 2px 7px;
+  font-size: 10px;
+  border-radius: 8px;
+  position: absolute;
+  top: 7px;
+  left: 10px;
 }

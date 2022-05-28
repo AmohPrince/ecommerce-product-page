@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Navbar.css";
 import Logo from "../images/logo.svg";
 import CartIcon from "../images/icon-cart.svg";
 import ProfilePicture from "../images/image-avatar.png";
+import Shoe1 from "../images/image-product-1.jpg";
+import Delete from "../images/icon-delete.svg";
 
-const Navbar = () => {
+const Navbar = ({ numberOfProducts }) => {
   const [showCart, setShowCart] = useState(false);
 
   const navLinks = document.querySelectorAll(".nav-link");
@@ -26,6 +28,7 @@ const Navbar = () => {
           <li className="nav-link">Contact</li>
         </ul>
         <div className="flex__container">
+          <p className="badge">{numberOfProducts}</p>
           <img
             src={CartIcon}
             alt="Cart"
@@ -37,14 +40,18 @@ const Navbar = () => {
         </div>
       </nav>
       <div className="splitter" />
-      {showCart && <Cart />}
+      {showCart && <Cart numberOfProducts={numberOfProducts} />}
     </div>
   );
 };
 
 export default Navbar;
 
-const Cart = () => {
+const Cart = ({ numberOfProducts }) => {
+  const [total, setTotal] = useState(0);
+  useEffect(() => {
+    setTotal(numberOfProducts * 125);
+  }, [numberOfProducts]);
   return (
     <div className="Cart__container">
       <div>
@@ -52,7 +59,25 @@ const Cart = () => {
       </div>
       <div className="splitter"></div>
       <div className="flex__container">
-        <p>Your cart is empty.</p>
+        {numberOfProducts != 0 ? (
+          <div className="cart__product">
+            <div className="flex__container">
+              <img src={Shoe1} alt="shoe" />
+              <div>
+                <p>Fall Limited Edition Sneakers</p>
+                <p>
+                  $125.00 * {numberOfProducts} <span>${total}.00</span>
+                </p>
+              </div>
+              <img src={Delete} alt="Delete" />
+            </div>
+            <div className="checkout">
+              <p>Checkout</p>
+            </div>
+          </div>
+        ) : (
+          <p>Your cart is empty.</p>
+        )}
       </div>
     </div>
   );
