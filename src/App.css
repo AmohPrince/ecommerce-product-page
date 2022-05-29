@@ -201,7 +201,7 @@ h3 {
 
 @media screen and (max-width: 1150px) {
   .App {
-    width: 95%;
+    width: 97%;
   }
   .body {
     padding: 30px 20px;
@@ -239,6 +239,7 @@ h3 {
   }
   .body-right > p:nth-child(3) {
     font-size: 1rem;
+    width: unset;
   }
   .body-left.true {
     width: 80%;

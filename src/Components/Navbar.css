@@ -120,7 +120,31 @@ nav > div img:last-of-type:hover {
 }
 .menu {
   display: none;
-  margin-right: 50px;
+  margin: 0px 50px 0px 20px;
+  height: 20px;
+  width: 20px;
+}
+.small-screen-menu {
+  position: absolute;
+  height: 100vh;
+  background-color: var(--white);
+  width: 100%;
+}
+.small-screen-menu-content {
+  width: 50%;
+}
+.small-screen-menu-overlay {
+  width: 50%;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+.nav-links-small {
+  margin-left: 20px;
+}
+.nav-links-small li {
+  list-style: none;
+  margin-bottom: 30px;
+  font-weight: 700;
+  font-size: 1.1rem;
 }
 
 @media screen and (max-width: 650px) {

@@ -6,9 +6,21 @@ import ProfilePicture from "../images/image-avatar.png";
 import Shoe1 from "../images/image-product-1.jpg";
 import Delete from "../images/icon-delete.svg";
 import Menu from "../images/icon-menu.svg";
+import Close from "../images/icon-close.svg";
 
 const Navbar = ({ numberOfProducts }) => {
   const [showCart, setShowCart] = useState(false);
+  const [smallScreenMenu, setSmallScreenMenu] = useState(false);
+
+  const [menuIcon, setMenuIcon] = useState(Menu);
+
+  useEffect(() => {
+    if (smallScreenMenu === true) {
+      setMenuIcon(Close);
+    } else {
+      setMenuIcon(Menu);
+    }
+  }, [smallScreenMenu]);
 
   const navLinks = document.querySelectorAll(".nav-link");
   navLinks.forEach((link) => {
@@ -17,10 +29,18 @@ const Navbar = ({ numberOfProducts }) => {
       return e.target.classList.toggle("active");
     });
   });
+
   return (
     <div className="Nav__container">
       <nav className="flex__container">
-        <img src={Menu} alt="menu" className="menu" />
+        <img
+          src={menuIcon}
+          alt="menu"
+          className="menu"
+          onClick={() => {
+            setSmallScreenMenu((prevState) => !prevState);
+          }}
+        />
         <img src={Logo} alt="Logo" />
         <ul className="nav-links flex__container">
           <li className="nav-link">Collections</li>
@@ -38,11 +58,25 @@ const Navbar = ({ numberOfProducts }) => {
               setShowCart((prevState) => !prevState);
             }}
           />
-          <img src={ProfilePicture} alt="Profile picture" />
+          <img src={ProfilePicture} alt="Profile" />
         </div>
       </nav>
       <div className="splitter" />
       {showCart && <Cart numberOfProducts={numberOfProducts} />}
+      {smallScreenMenu && (
+        <div className="small-screen-menu flex__container">
+          <div className="small-screen-menu-content">
+            <ul className="nav-links-small ">
+              <li className="nav-link-small">Collections</li>
+              <li className="nav-link-small">Men</li>
+              <li className="nav-link-small active">Women</li>
+              <li className="nav-link-small">About</li>
+              <li className="nav-link-small">Contact</li>
+            </ul>
+          </div>
+          <div className="small-screen-menu-overlay"></div>
+        </div>
+      )}
     </div>
   );
 };
@@ -61,7 +95,7 @@ const Cart = ({ numberOfProducts }) => {
       </div>
       <div className="splitter"></div>
       <div className="flex__container">
-        {numberOfProducts != 0 ? (
+        {numberOfProducts !== 0 ? (
           <div className="cart__product">
             <div className="flex__container">
               <img src={Shoe1} alt="shoe" />

@@ -24,7 +24,10 @@ function App() {
   const [activeProduct, setActiveProduct] = useState(products[0]);
 
   const products2 = [Shoe1, Shoe2, Shoe3, Shoe4];
-  const [activeProduct2, setActiveProduct2] = useState(products2[0]);
+  const [products2index, setProducts2index] = useState(0);
+  const [activeProduct2, setActiveProduct2] = useState(
+    products2[products2index]
+  );
 
   const [activeClass, setActiveClass] = useState("image1-active");
   const [activeClass2, setActiveClass2] = useState("image1-active");
@@ -32,7 +35,18 @@ function App() {
   const [numberOfProducts, setNumberOfProducts] = useState(0);
   const [overlay, setOverlay] = useState(false);
 
-  const showNextImage = (direction) => {};
+  const showNextImage = (direction) => {
+    // console.log(
+    //   "called with  direction " + direction + " and index " + products2index
+    // );
+    if (direction === "right" && products2index < products2.length - 1) {
+      setActiveProduct2(products2[products2index]);
+      setProducts2index((prevState) => prevState + 1);
+    } else if (direction === "left" && products2index > 0) {
+      setActiveProduct2(products2[products2index]);
+      setProducts2index((prevState) => prevState - 1);
+    }
+  };
 
   return (
     <>
@@ -51,32 +65,32 @@ function App() {
               <div
                 className="svg_container pointer-left"
                 onClick={() => {
-                  showNextImage("right");
+                  showNextImage("left");
                 }}
               >
                 <svg width="12" height="18" xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="M11 1 3 9l8 8"
                     stroke="#1D2026"
-                    stroke-width="3"
+                    strokeWidth="3"
                     fill="none"
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                   />
                 </svg>
               </div>
               <div
                 className="svg_container pointer-right"
                 onClick={() => {
-                  showNextImage("left");
+                  showNextImage("right");
                 }}
               >
                 <svg width="13" height="18" xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="m2 1 8 8-8 8"
                     stroke="#1D2026"
-                    stroke-width="3"
+                    strokeWidth="3"
                     fill="none"
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                   />
                 </svg>
               </div>
